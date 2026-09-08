@@ -1,6 +1,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,macos,windows,linux,jupyternotebooks
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,macos,windows,linux,jupyternotebooks
 
+# Ignore support file folder for README file
+README_files/
+
 ### JupyterNotebooks ###
 # gitignore template for Jupyter Notebooks
 # website: http://jupyter.org/

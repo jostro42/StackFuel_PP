@@ -1,60 +1,89 @@
-# 📋 Template-Anleitung
+# Understanding Video Game Reception: A Metacritic Data Analysis
 
-> **Für Kursteilnehmer*innen:** Diese Sektion nach dem Setup deines Projekts löschen!
+A dive into the depths of video game reviews on Metacritic in an attempt to identify what makes a game successful in the eyes of the audience and what drives the divide between user reception and critic scores.
 
-## So verwenden Sie dieses Template:
-Dieses Template hilft dir, dein Data Science Projekt effizient zu organisieren und zu dokumentieren. Es bietet eine gängige Struktur, um deine Arbeit zu planen, durchzuführen und zu präsentieren.
+## Goals & Data
 
-### 1. Template verwenden
-Templates können in GitHub über den Button **"Use this template" -> "Create a new repository"** in der oberen rechten Ecke in ein eigenes Repository überführt werden. Nutze diese Vorlage als Inspiration und passe sie an dein Projekt an! 
+#### Goals
 
-### 2. Projekt klonen
-Danach kannst du dein neues Repository direkt über VS Code klonen. Dazu öffnest du in VS Code die Kommando-Palette (Strg+Shift+P) bzw. (Cmd+Shift+P) auf dem Mac und gibst **"Git: Clone"** ein. Wähle dann "Clone from GitHub..." und melde dich ggf. bei GitHub an. Suche nach deinem Repository und wähle einen lokalen Ordner aus, in dem das Projekt gespeichert werden soll.
+1. The main goal here is to try and identify how meta information about a game that is available around launch may affect user reception of that game.
+2. Identify factors that may contribute to a discrepancy between critic scores and user reception
+3. Has the reception of games changed over time and are there game archetypes based on their meta data and reception?
+4. What determines player engagement?
 
-### 3. Abhängigkeiten installieren
-Nachdem du das Repository geklont hast, musst du die Abhängigkeiten installieren. Öffne dazu ein neues Terminal in VS Code über die Menüleiste "Terminal"->"Neues Terminal" und führe die folgenden Befehle aus:
+**Potential Use-Cases**
 
-```bash
-uv sync
+- Additional information for marketing-related decisions
+- ...
+ 
+#### Data
+
+The basis for this project is a publicly available data set that is the result of a web scrape from meta critic. You can check the kaggle data source [here](https://www.kaggle.com/datasets/zaireali/metacritic-games-scrape/data).
+
+**Data Structure**  
+The main information present in the data.
+
+| Variable | Description |
+| -------- | ----------- |
+| title | Full title of the game |
+| genres/0 | The first genre tag as found on metacritic |
+| metascore | The aggregated critic rating of the game |
+| publisherName | Name of the publisher |
+| publisherUrl | web page of the publisher on metacritic |
+| releaseDate | Release Date of the first system installment of the game |
+| section | Console on which the game was published first |
+| summary | game summary as found on the metacritic game page |
+| url | link to game page on meta critic |
+| userscore | aggregated user score of the game |
+
+There are ~300 more columns in the data that are a flattened representation of positive, negative, and mixed user review counts grouped by console. This information needs to be extracted and made available for use as additional features.
+
+**Planned methods/steps**
+
+- Extensive EDA of original meta critic data set
+- Data aggregation: Extraction and integration of console-dependent user review counts for later use
+- *Feature Engineering*
+    - Cyclical information of release date variable
+    - Attempt at Web Scrape I: get console-dependent critic review counts
+    - Attempt at Web Scrape II: get additional genre tags from game site
+    - Gather number of sales or total revenue or similar business information from additional data sources or web scrape
+- *ML*
+    - Prediction of critic - user gap (Regression, RF, HistGradBoost, XGBoost, ...)
+    - Identification of game types (PCA, k-Means, DBSCAN, ...)
+- Nice visualizations
+
+**Secondary Data Sources**
+
+[Information about potential other data sources here]
+
+## Installation & Use
+
+For this project you will need Python and uv virtual environment manager installed on your machine. 
+
+## Project Structure
+
+```text
+StackFuel_PP/
+├── .venv/
+├── .vscode/
+├── data/
+|   ├── processed/
+|   └── raw/
+├── docs/
+├── figures/
+├── models/
+├── notebooks/
+├── README_files/
+├── src/
+├── .gitignore
+├── python-version
+├── pyproject.toml
+├── README.html
+├── README.md
+└── uv.lock
 ```
 
-### 4. Erweiterungen hinzufügen
-Für dieses Projekt empfehlen wir die Installation der folgenden VS Code Erweiterungen:
-- **Python** (Microsoft) - Bietet Unterstützung für Python-Entwicklung.
-- **Jupyter** (Microsoft) - Ermöglicht das Arbeiten mit Jupyter Notebooks direkt in VS Code.
-- **Even Better TOML** (tamasfe) - Verbessert die Bearbeitung von TOML-Dateien.
-- **Ruff** (Astral Software) - Ein schneller Linter für Python, der dir hilft, sauberen Code zu schreiben.
-- **Material Icon Theme** (PKief) - Verbessert die Dateisymbole in VS Code für eine bessere Übersicht.
-
-Dafür kannst du den Erweiterungs-Tab in VS Code öffnen (Symbol mit den vier Quadraten auf der linken Seitenleiste) und in die Suchleiste `@recommended` eingeben. Danach sollten dir die empfohlenen Erweiterungen angezeigt werden.
-
-### Notebooks ausführen
-Im Ordner `notebooks/` findest du ein Jupyter Notebook namens `01_exploration.ipynb`, das als Ausgangspunkt für deine Datenanalyse dient. Öffne das Notebook in VS Code und wähle oben rechts dein virtuelles Environment als Kernel aus. Führe die Zellen nacheinander aus. Wenn alles geklappt hat wird das Notebook einen Datensatz von Kaggle laden und im Ordner `data/` speichern.
-
-Von hier an kannst du mit deinem Projekt starten und die Vorlagen nach belieben anpassen.
-
-Schaue dir für weitere Informationen zum Template die Datei [docs/project.md](./docs/project.md) an.
-
-
-Für dein Projekt kannst du die folgenden Abschnitte in der `README.md` Datei anpassen, um dein Projekt zu beschreiben und zu präsentieren. Lösche anschließend diese Anleitung.
-
----
-
-# [DEIN PROJEKTTITEL HIER] 🚀
-
-> Eine kurze, prägnante Beschreibung deines Data Science Projekts in 1-2 Sätzen.
-
-## 📊 Projektübersicht
-
-**Problemstellung:** 
-<!-- Beschreibe das Problem, das du lösen möchtest -->
-
-**Ziel:** 
-<!-- Was ist das Hauptziel deines Projekts? -->
-
-**Methoden:** 
-<!-- Welche Techniken/Algorithmen verwendest du? -->
-
+- `.venv/`: virtual environment files for the project
 
 
 ## Setup

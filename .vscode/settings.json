@@ -1,4 +1,11 @@
 {
+  // Disable Conda as environment provider for this project
+ // "python.environmentProviders.enable": {
+ //       "Conda": false,
+ //       "Venv": true,
+ //       "uv": true
+  //},
+
   // Type Checking and Analysis
   "python.analysis.typeCheckingMode": "basic",
   "python.analysis.autoImportCompletions": true,
