@@ -86,3 +86,7 @@ def load_from_kaggle(
 
     _move_files(path, final_destination, replace)
     return os.listdir(full_destination_path)
+
+
+def overview():
+    """ """

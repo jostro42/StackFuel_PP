@@ -1048,6 +1048,7 @@ source = { editable = "." }
 dependencies = [
     { name = "duckdb" },
     { name = "ipykernel" },
+    { name = "ipython" },
     { name = "kagglehub" },
     { name = "matplotlib" },
     { name = "pandas" },
@@ -1059,6 +1060,7 @@ dependencies = [
 requires-dist = [
     { name = "duckdb", specifier = ">=1.4.1" },
     { name = "ipykernel", specifier = ">=7.0.1" },
+    { name = "ipython", specifier = ">=9.6.0" },
     { name = "kagglehub", specifier = ">=0.3.13" },
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "pandas", specifier = ">=2.3.3" },
