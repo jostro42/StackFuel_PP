@@ -48,7 +48,7 @@ def overview(df, transpose_overview=False):
 
     # print out information
     print("Descriptive Metrics on numeric variables")
-    display(df.describe())
+    display(df.describe().transpose())
     print()
     print("Numeric Variables in the data set")
     display(num_vars)
