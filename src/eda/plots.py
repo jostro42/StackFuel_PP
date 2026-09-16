@@ -33,7 +33,7 @@ def plot_top_categories(df, category, top_n=20):
     top_counts = counts.head(top_n)
     n_shown = len(top_counts)
 
-    fig, ax = plt.subplots(figsize=(13, 3.5))
+    ax = plt.subplots(figsize=(13, 3.5))
 
     sns.barplot(
         x=top_counts.index,
